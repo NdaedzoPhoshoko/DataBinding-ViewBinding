@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"> <!--enabling dataBinding-->
+
+    <!-- declare variable that holds data for the user interface -->
+    <data>
+        <variable
+            name="Client"
+            type="com.example.databindingtester.Client" /> <!--type is used to reference to the class the data would be extracted from -->
+    </data>
+    <!-- main layout containing UI views-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#34FFDBD0"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/heading_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="112dp"
+            android:background="@drawable/main_text_background"
+            android:fontFamily="@font/cantata_one"
+            android:gravity="center"
+            android:text="Data Binding"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/heading_textView"
+            android:layout_marginTop="140dp"
+            android:id="@+id/linear_layout">
+
+            <!-- bind data will appear here where text is @{Client.name} -->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:background="@drawable/main_text_background"
+                android:backgroundTint="#DDBB32C5"
+                android:layout_gravity="start"
+                android:hint="Name shows here"
+                android:text="@{Client.client_name}"
+                android:fontFamily="@font/cantata_one"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+
+            <!-- bind data will appear here where text is @{Client.age} -->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:background="@drawable/main_text_background"
+                android:backgroundTint="#DDBB32C5"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/cantata_one"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:hint="Age shows here"
+                android:text="@{Client.client_age}"
+                android:layout_gravity="end"
+                />
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_editText"
+            android:hint="Enter First Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="sans-serif-black"
+            android:backgroundTint="#E2D721E4"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/age_editText"
+            android:hint="Enter Your Age"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_editText"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="sans-serif-black"
+            android:backgroundTint="#D811ECA0"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/binding_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age_editText"
+            android:background="@drawable/main_text_background"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Start Binding"
+            android:textSize="18sp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
